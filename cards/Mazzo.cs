@@ -8,15 +8,14 @@ namespace cards
 {
     public class Mazzo
     {
-        int numero_carte;
-        string[] semi = new string[] { "quadri", "fiori", "cuori", "picche" };
-        static Carte[] carte;
+        protected int numero_carte;
+        private string[] semi = new string[] { "quadri", "fiori", "cuori", "picche" };
+        protected Carte[] carte;
 
         public Mazzo(int numero_carte)
         {
             //costruturo
             this.numero_carte = numero_carte;
-            carte = new Carte[numero_carte];
         }
 
         protected void generatore(Carte[] carte, int numero = 10)
@@ -24,14 +23,14 @@ namespace cards
             //genera il mazzo, in numero si passa il numero piu alto delle numero delle carte
             for (int i = 0; i < carte.Length;)
             {
-                i = this.figura_generatore(carte, i, "asso");
+                i = figura_generatore(carte, i, "asso");
                 for (int j = 2; j <= numero; j++)
                 {
-                    i = this.numero_generatore(carte, i, j);
+                    i = numero_generatore(carte, i, j);
                 }
-                i = this.figura_generatore(carte, i, "dama");
-                i = this.figura_generatore(carte, i, "re");
-                i = this.figura_generatore(carte, i, "fante");
+                i = figura_generatore(carte, i, "dama");
+                i = figura_generatore(carte, i, "re");
+                i = figura_generatore(carte, i, "fante");
             }
         }
 
@@ -73,9 +72,9 @@ namespace cards
             string x = "";
             foreach (Carte carta in carte)
             {
-                x = x + " - " + carta;
+                x = x + carta + " - ";
             }
-            return x;
+            return x + "\n";
         }
 
     }

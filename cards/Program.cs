@@ -17,6 +17,7 @@ namespace cards
 
             Console.Write(scala40.get_scring_carte());
 
+
             Console.ReadLine();
         }
     }
