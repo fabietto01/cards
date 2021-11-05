@@ -10,6 +10,8 @@ namespace cards
     {
         /*
          * classe patre per creare e gestire un mazzo di carte
+         * 
+         * la mia dificolta e che non ho mai giocato a carte apaere scala... che cosa triste(-:
          */
         protected int numero_carte;
         protected int carta_numero_magiore;
@@ -89,7 +91,7 @@ namespace cards
         }
 
 
-        public Carte[] get_carte()
+        public Carte[] get_array_carte()
         {
             //ritorna l'arrey delle carte
             return carte;

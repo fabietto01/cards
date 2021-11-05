@@ -23,7 +23,7 @@ namespace cards
         
         public override string ToString()
         {
-            return $"mazo per scala 40, contiene {numero_carte} corte";
+            return $"mazo per scala 40, contiene {numero_carte} carte";
         }
 
 

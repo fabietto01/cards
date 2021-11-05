@@ -10,7 +10,7 @@ namespace cards
     {
         private string name;
         private List<Carte> carte_coperte = new List<Carte>();
-        private List<Carte> carte_scoperte = new List<Carte>();
+        private List<Carte> carte_scoperte;
 
         public Giocatore(string nome, int carte_coperte)
         {
@@ -32,7 +32,7 @@ namespace cards
             string x = "carte coperte:\n" + string.Join(" - ", carte_coperte) + "\n";
             if (carte_scoperte != null)
             {
-                x = x + "carte scoperte\n" + string.Join(" - ", carte_scoperte) + "\n";
+                x = x + "carte scoperte:\n" + string.Join(" - ", carte_scoperte) + "\n";
             }
             return x;
         }

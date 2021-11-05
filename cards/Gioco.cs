@@ -14,9 +14,6 @@ namespace cards
         private List<Carte> da_pescare;
         private List<Carte> scartate;
 
-
-
-
         public Gioco(Mazzo mazzo, string[] giocatori)
         {
             if (giocatori.Length >= 2)
@@ -31,8 +28,6 @@ namespace cards
             }
             
         }
-
-
 
         public void start()
         {
@@ -51,21 +46,44 @@ namespace cards
             Console.WriteLine("grazie per l'attesta le carte sono state distribuite....");
         }
 
-
         public string get_all_carte()
         {
             string x;
-            x = $"\tcarte ancora da pescare {da_pescare.Count}:\n" + string.Join(" - ", da_pescare) + "\n";
-            if (scartate != null)
+            try
             {
-                x = x + "\tcarte scartate:\n" + string.Join("-", scartate) + "\n" ;
+                x = get_mazzo();
+                foreach (Giocatore giocatore in giocatori)
+                {
+                    x = x + $"\tcarti in mano al giocatore {giocatore.get_nome()}\n" + giocatore.get_string_carte() + "\n";
+                }
             }
-            foreach (Giocatore giocatore in giocatori) 
+             catch (NullReferenceException)
             {
-                x = x + $"\tcarti in mano al giocatore {giocatore.get_nome()}\n" + giocatore.get_string_carte() + "\n" ;
+               x = "non sono statte ancora disribuite le carte";
             }
             return x;
         }
+
+        public string get_mazzo()
+        {
+            string x;
+            try
+            {
+                x = $"carte ancora da pescare {da_pescare.Count}:\n" + string.Join(" - ", da_pescare) + "\n";
+                if (scartate != null)
+                {
+                    x = x + "carte scartate:\n" + string.Join(" - ", scartate) + "\n\n\n";
+                }
+            }
+            catch (NullReferenceException)
+            {
+                x = "mazzo vergine:\n" +  mazzo.get_scring_carte();
+            }
+            return x;
+        }
+
+
+
 
         public override string ToString()
         {
