@@ -16,10 +16,6 @@ namespace cards
 
         public Gioco(Mazzo mazzo, string[] giocatori)
         {
-            if (giocatori.Length >= 2)
-            {
-                var ex = new Exception("il numero di gocatori deve essere >= 2");
-            }
             this.mazzo = mazzo;
             this.giocatori = new Giocatore[giocatori.Length];
             for (int i = 0; i < this.giocatori.Length; i++)
@@ -34,7 +30,7 @@ namespace cards
             Console.WriteLine("preparazione.....");
             mazzo.mischia();
             da_pescare = mazzo.get_list_carte();
-            for (int i = 0; i < (giocatori.Length * mazzo.carte_coperte); i++)
+            for (int i = 0; i < (giocatori.Length * mazzo.carte_coperte);)
             {
                 foreach(Giocatore giocatore in giocatori)
                 {
@@ -51,7 +47,11 @@ namespace cards
             string x;
             try
             {
-                x = get_mazzo();
+                x = $"carte ancora da pescare {da_pescare.Count}:\n" + string.Join(" - ", da_pescare) + "\n";
+                if (scartate != null)
+                {
+                    x = x + "carte scartate:\n" + string.Join(" - ", scartate) + "\n\n\n";
+                }
                 foreach (Giocatore giocatore in giocatori)
                 {
                     x = x + $"\tcarti in mano al giocatore {giocatore.get_nome()}\n" + giocatore.get_string_carte() + "\n";
@@ -81,9 +81,6 @@ namespace cards
             }
             return x;
         }
-
-
-
 
         public override string ToString()
         {

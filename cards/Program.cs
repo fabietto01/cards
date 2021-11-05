@@ -43,9 +43,9 @@ namespace cards
 
             
             x = true;
-            string comand = "\n\tmazzo = per riotrnare il mazzo cho o in questo momento" +
-                "\n\tstart = startare il gioco cosi che le carte vengono misciate e distribuite" +
-                "\n\tvisualiza = per vedere le carte in mano e nel mazzo\n\tesci = per uscire dal programma";
+            string comand = "\n\tmazzo = per stamapre a scarmo il contenuto del mazzo" +
+                "\n\tstart = startare il gioco cosi che le carte vengono misciate e distribuite hai giocatori" +
+                "\n\tvisualiza = per vedere le carte in mano hai giocatori e nel mazzo\n\tesci = per uscire dal programma";
             Console.WriteLine("cosa vui fare ora?" + comand);
             do
             {
