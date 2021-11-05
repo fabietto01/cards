@@ -6,8 +6,12 @@ using System.Threading.Tasks;
 
 namespace cards
 {
-    internal class Figura : Carte
+    public class Figura : Carte
     {
+        /*
+         * classe che contine le carte di tipo figura quindi l'asso,
+         * il re, la dona e il fante nel casso esista al il jolly
+         */
         string figura;
         string seme;
 
