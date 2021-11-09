@@ -9,9 +9,7 @@ namespace cards
     public class Mazzo
     {
         /*
-         * classe patre per creare e gestire un mazzo di carte
-         * 
-         * la mia dificolta e che non ho mai giocato a carte apaere scala... che cosa triste(-:
+         * classe padre per i mazzi contiene il generatore di carte e tutto cio che e in comune hai mazzi
          */
         protected int numero_carte;
         protected int carta_numero_magiore;
@@ -30,7 +28,7 @@ namespace cards
 
         protected void generatore(Carte[] carte, int carta_numero_magiore = 10, int numero_jolly = 0)
         {
-            //genera il mazzo, in numero si passa il numero piu alto delle numero delle carte
+            //genera il mazzo di carte a seconda dei parametri passati
             for (int i = 0; i < carte.Length;)
             {
                 i = figura_generatore(carte, i, "asso");
@@ -88,13 +86,6 @@ namespace cards
         public List<Carte> get_list_carte()
         {
             return new List<Carte>(carte);
-        }
-
-
-        public Carte[] get_array_carte()
-        {
-            //ritorna l'arrey delle carte
-            return carte;
         }
 
         public string get_scring_carte()

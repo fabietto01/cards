@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace cards
 {
-    public class Carte
+    public abstract class Carte
     {
         /*
          * modello patre per le carte mi server solo per una questione pratica

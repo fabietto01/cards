@@ -8,6 +8,10 @@ namespace cards
 {
     internal class Briscola : Mazzo
     {
+        /*
+         * classe figlia di mazzo e serve per gestire il mazzo di briscola
+         * le eventuale regole
+         */
         public Briscola(int numero_carte = 40, int numero_jolli = 0, int carta_numero_magiore = 7, int carte_coperte = 3) : base(numero_carte, numero_jolli, carta_numero_magiore, carte_coperte)
         {
             generatore(carte, carta_numero_magiore, numero_jolli);

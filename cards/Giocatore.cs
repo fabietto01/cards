@@ -8,12 +8,16 @@ namespace cards
 {
     public class Giocatore
     {
+        /*
+         * gestisce i giocatroi salvano nome, il mazzo di carte coperto e quello scopertto
+         */
         private string name;
         private List<Carte> carte_coperte = new List<Carte>();
         private List<Carte> carte_scoperte;
 
         public Giocatore(string nome, int carte_coperte)
         {
+            //costrutore
             name = nome;
         }
 
@@ -29,6 +33,7 @@ namespace cards
 
         public string get_string_carte()
         {
+            //ritorna come stringa le carte in poseso del giocatore
             string x = "carte coperte:\n" + string.Join(" - ", carte_coperte) + "\n";
             if (carte_scoperte != null)
             {

@@ -8,7 +8,9 @@ namespace cards
 {
     internal class Gioco
     {
-        //
+        /*
+         * qui vengono presi i mazzi e i giocatori e vengono unite le cose gestendo il gioco in se dal ditribuire
+         */
         private Mazzo mazzo;
         private Giocatore[] giocatori;
         private List<Carte> da_pescare;
@@ -16,6 +18,7 @@ namespace cards
 
         public Gioco(Mazzo mazzo, string[] giocatori)
         {
+            //metodo costrutore
             this.mazzo = mazzo;
             this.giocatori = new Giocatore[giocatori.Length];
             for (int i = 0; i < this.giocatori.Length; i++)
@@ -27,6 +30,10 @@ namespace cards
 
         public void start()
         {
+            /*
+             * prima che il gioco abbia inizio bisoglia startare una volta eseguito il funzione
+             * le carte vengono mischiate e distribuite hai fari giocatori
+             */
             Console.WriteLine("preparazione.....");
             mazzo.mischia();
             da_pescare = mazzo.get_list_carte();
@@ -44,6 +51,7 @@ namespace cards
 
         public string get_all_carte()
         {
+            // ritorna tutte le carte sia nel mazzo che apartenente hai giocatori
             string x;
             try
             {
@@ -66,6 +74,7 @@ namespace cards
 
         public string get_mazzo()
         {
+            //ritorna solo il mazzo 
             string x;
             try
             {

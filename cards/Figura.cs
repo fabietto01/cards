@@ -26,7 +26,7 @@ namespace cards
             if (seme == null)
             {
                 return this.figura;
-            }        
+            }
             return $"{this.figura} di {this.seme}";
         }
 

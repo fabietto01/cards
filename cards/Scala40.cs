@@ -9,14 +9,14 @@ namespace cards
     public class Scala40 : Mazzo
     {
         /*
-         * questa classe eredita dal classe mazzo con al interno diversi parametri genera un mazzo per
-         * giocare a scala 40 per 2 o 4 giocatori!
+         * classe figlia di mazzo e serve per gestire il mazzo di scala40 e
+         * le eventuale regole
          */
-       
 
 
         public Scala40(int numero_carte = 104, int numero_jolli = 4, int carta_numero_magiore = 10, int carte_coperte = 13) : base(numero_carte, numero_jolli, carta_numero_magiore, carte_coperte)
         {
+            numero_carte = 104;
             generatore(carte, carta_numero_magiore, numero_jolli);
         }
 
