@@ -12,9 +12,27 @@ namespace cards
          * classe figlia di mazzo e serve per gestire il mazzo di briscola
          * le eventuale regole
          */
-        public Briscola(int numero_carte = 40, int numero_jolli = 0, int carta_numero_magiore = 7, int carte_coperte = 3) : base(numero_carte, numero_jolli, carta_numero_magiore, carte_coperte)
+
+        public Briscola(int numero_carte = 40) : base(numero_carte)
         {
-            generatore(carte, carta_numero_magiore, numero_jolli);
+            this.semi = new string[] { "spade", "coppe", "denari", "bastoni" };
+            generatore();
+        }
+
+        protected override void generatore()
+        {
+            //genera il mazzo di carte a seconda dei parametri passati
+            for (int i = 0; i < carte.Length;)
+            {
+                i = figura_generatore(carte, i, "asso");
+                for (int j = 2; j <= 7; j++)
+                {
+                    i = numero_generatore(carte, i, j);
+                }
+                i = figura_generatore(carte, i, "dama");
+                i = figura_generatore(carte, i, "re");
+                i = figura_generatore(carte, i, "fante");
+            }
         }
 
         public override string ToString()

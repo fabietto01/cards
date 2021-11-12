@@ -11,24 +11,27 @@ namespace cards
         /*
          * gestisce i giocatroi salvano nome, il mazzo di carte coperto e quello scopertto
          */
-        private string name;
-        private List<Carte> carte_coperte = new List<Carte>();
-        private List<Carte> carte_scoperte;
+        public string name
+        {
+            get; 
+        }
 
-        public Giocatore(string nome, int carte_coperte)
+        private List<Carte> carte_coperte = new List<Carte>();
+        private List<Carte> carte_scoperte = null;
+
+        public List<Carte> _carte_coperte
+        {
+            get { return carte_coperte;}
+        }
+        public List<Carte> _carte_scoperte
+        {
+            get { return carte_scoperte;}
+        }
+
+        public Giocatore(string nome)
         {
             //costrutore
             name = nome;
-        }
-
-        public List<Carte> get_list_carte_scoperte()
-        {
-            return carte_scoperte;
-        }
-
-        public List<Carte> get_list_carte_coperte()
-        {
-            return carte_coperte;
         }
 
         public string get_string_carte()
@@ -42,11 +45,10 @@ namespace cards
             return x;
         }
 
-        public string get_nome()
-        {
-            return name;
-        }
-
+        /// <summary>
+        /// prende una carta e la inserisce imete nella sua manno, qusto comanda e anche chiamato pesca
+        /// </summary>
+        /// <param name="carta"></param>
         public void add_carta_coperta(Carte carta)
         {
             carte_coperte.Add(carta);

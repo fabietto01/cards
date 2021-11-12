@@ -6,48 +6,25 @@ using System.Threading.Tasks;
 
 namespace cards
 {
-    public class Mazzo
+    public abstract class Mazzo
     {
         /*
          * classe padre per i mazzi contiene il generatore di carte e tutto cio che e in comune hai mazzi
          */
         protected int numero_carte;
-        protected int carta_numero_magiore;
-        private string[] semi = new string[] { "quadri", "fiori", "cuori", "picche" };
+        protected string[] semi;
         protected Carte[] carte;
-        public readonly int carte_coperte;
 
-        public Mazzo(int numero_carte = 52, int numero_jolli = 2, int carta_numero_magiore = 10,int carte_coperte = 0)
+        public Mazzo(int numero_carte)
         {
             //costruturo
-            this.carta_numero_magiore = carta_numero_magiore;
-            this.numero_carte = numero_carte + numero_jolli;
-            this.carte_coperte = carte_coperte;
+            this.numero_carte = numero_carte;
             carte = new Carte[this.numero_carte];
         }
 
-        protected void generatore(Carte[] carte, int carta_numero_magiore = 10, int numero_jolly = 0)
-        {
-            //genera il mazzo di carte a seconda dei parametri passati
-            for (int i = 0; i < carte.Length;)
-            {
-                i = figura_generatore(carte, i, "asso");
-                for (int j = 2; j <= carta_numero_magiore; j++)
-                {
-                    i = numero_generatore(carte, i, j);
-                }
-                i = figura_generatore(carte, i, "dama");
-                i = figura_generatore(carte, i, "re");
-                i = figura_generatore(carte, i, "fante");
-                for (int j = 0; j < (numero_jolly/2); j++)
-                {
-                    carte[i] = new Figura("jolly", null);
-                    i++;
-                }
-            }
-        }
+        protected abstract void generatore();
 
-        private int numero_generatore(Carte[] carte, int puntatore, int numero_di_carta)
+        protected int numero_generatore(Carte[] carte, int puntatore, int numero_di_carta)
         {
             //genera le carte numero
             foreach (string seme in semi)
@@ -58,7 +35,7 @@ namespace cards
             return puntatore;
         }
 
-        private int figura_generatore(Carte[] carte, int puntatore, string typo_figura)
+        protected int figura_generatore(Carte[] carte, int puntatore, string typo_figura)
         {
             //genera le carte figura
             foreach (string seme in semi)
@@ -82,7 +59,6 @@ namespace cards
             Random rand = new Random();
             return carte.OrderBy(x => rand.Next()).ToArray();
         }
-
         public List<Carte> get_list_carte()
         {
             return new List<Carte>(carte);

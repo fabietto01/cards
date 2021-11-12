@@ -6,18 +6,12 @@ using System.Threading.Tasks;
 
 namespace cards
 {
-    public class Scala40 : Mazzo
+    internal class Rubamazzetto : Mazzo
     {
-        /*
-         * classe figlia di mazzo e serve per gestire il mazzo di scala40 e
-         * le eventuale regole
-         */
-        int numero_jolli;
 
-        public Scala40(int numero_carte = 108, int numero_jolli = 4) : base(numero_carte)
+        public Rubamazzetto(int numero_carte = 40) : base(numero_carte)
         {
-            this.numero_jolli = numero_jolli;
-            this.semi = new string[] { "quadri", "fiori", "cuori", "picche" };
+            this.semi = new string[] { "spade", "coppe", "denari", "bastoni" };
             generatore();
         }
 
@@ -27,25 +21,24 @@ namespace cards
             for (int i = 0; i < carte.Length;)
             {
                 i = figura_generatore(carte, i, "asso");
-                for (int j = 2; j <= 10; j++)
+                for (int j = 2; j <= 7; j++)
                 {
                     i = numero_generatore(carte, i, j);
                 }
                 i = figura_generatore(carte, i, "dama");
                 i = figura_generatore(carte, i, "re");
                 i = figura_generatore(carte, i, "fante");
-                for (int j = 0; j < (numero_jolli / 2); j++)
-                {
-                    carte[i] = new Figura("jolly", null);
-                    i++;
-                }
             }
         }
 
         public override string ToString()
         {
-            return $"mazo per scala 40, contiene {numero_carte} carte";
+            return $"mazo per rubamazzetto, contiene {numero_carte} carte";
         }
+
+
+
+
 
 
 
