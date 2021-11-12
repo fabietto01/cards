@@ -153,7 +153,7 @@ namespace cards
                     case "ruba":
                         break;
                     case "vedi":
-                        string[] str_mazzo_coperto = string[giocatori.Length];
+                        string[] str_mazzo_coperto = new string[giocatori.Length];
                         foreach (Giocatore gin in giocatori)
                         {
                             for (int i = 0; i > gin.carte_scoperte.Count; i++)
