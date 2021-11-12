@@ -6,25 +6,40 @@ using System.Threading.Tasks;
 
 namespace cards
 {
-    public abstract class Carte
+    public class Carte
     {
         /*
          * modello patre per le carte mi server solo per una questione pratica
          * di denominazione
          */
-
-        string seme;
-
-        public Carte(string seme)
+        private string _valore;
+        private string _seme;
+        
+        public string valore
         {
-           this.seme = seme;
+            get { return _valore; }
+            protected set { _valore = value; }
         }
 
-        public string get_seme()
+        public string seme
         {
-            return seme;
+            get { return _seme; }
+            protected set { _valore = value; }
         }
 
+        public Carte(string valore, string seme)
+        {
+            this._seme = seme;
+            this._valore = valore;
+        }
 
+        public override string ToString()
+        {
+            if (seme == null)
+            {
+                return this.valore;
+            }
+            return $"{this.valore} di {this.seme}";
+        }
     }
 }

@@ -14,7 +14,7 @@ namespace cards
         {
             this.mazzo = new Scala40();
             this.numero_di_giocatori = new int[] { 2, 4 };
-            carte_coperte = 13;
+            numero_carte_coperte = 13;
         }
 
         public override void partita()
@@ -27,7 +27,7 @@ namespace cards
             throw new NotImplementedException();
         }
 
-        protected override void turno()
+        protected override void turno(Giocatore giocatore)
         {
             throw new NotImplementedException();
         }

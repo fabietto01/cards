@@ -18,38 +18,25 @@ namespace cards
         protected List<Carte> da_pescare;
         protected List<Carte> scartate;
 
-        private int _carte_coperte;
+        private int _numero_carte_coperte;
         private int[] _numero_di_giocatori;
-        private bool _pesca_ad_oggni_turno = true;
         private int _numero_carte_scoperte = 1;
-        private bool _pesca_da_scartate = true;
 
         public int[] numero_di_giocatori
         {
             get { return _numero_di_giocatori; }
             protected set { _numero_di_giocatori = value; }
         }
-        public int carte_coperte
+        public int numero_carte_coperte
         {
-            get { return _carte_coperte; }
-            protected set { _carte_coperte = value; }
-        }
-        public bool pesca_ad_oggni_turno
-        {
-            get { return _pesca_ad_oggni_turno; }
-            protected set { _pesca_ad_oggni_turno = value; }
+            get { return _numero_carte_coperte; }
+            protected set { _numero_carte_coperte = value; }
         }
 
         public int numero_carte_scoperte
         {
             get { return _numero_carte_scoperte; }
             protected set { _numero_carte_scoperte = value; }
-        }
-
-        public bool pesca_da_scartate
-        {
-            get { return _pesca_da_scartate; }
-            protected set { _pesca_ad_oggni_turno = value; }
         }
 
         public bool IsStart
@@ -76,7 +63,7 @@ namespace cards
             Console.WriteLine("preparazione.....");
             mazzo.mischia();
             da_pescare = mazzo.get_list_carte();
-            for (int i = 0; i < (giocatori.Length * carte_coperte);)
+            for (int i = 0; i < (giocatori.Length * numero_carte_coperte);)
             {
                 foreach (Giocatore giocatore in this.giocatori)
                 {
@@ -107,7 +94,7 @@ namespace cards
                 x = $"carte ancora da pescare {da_pescare.Count}:\n" + string.Join(" - ", da_pescare) + "\n";
                 if (scartate != null)
                 {
-                    x = x + "carte scartate:\n" + string.Join(" - ", scartate) + "\n\n\n";
+                    x = x + get_string_scartate() + "\n\n\n";
                 }
                 foreach (Giocatore giocatore in giocatori)
                 {
@@ -130,7 +117,7 @@ namespace cards
                 x = $"carte ancora da pescare {da_pescare.Count}:\n" + string.Join(" - ", da_pescare) + "\n";
                 if (scartate != null)
                 {
-                    x = x + "carte scartate:\n" + string.Join(" - ", scartate) + "\n\n\n";
+                    x = x + "carte scartate:\n" + get_string_scartate() + "\n\n\n";
                 }
             }
             catch (NullReferenceException)
@@ -140,33 +127,28 @@ namespace cards
             return x;
         }
 
+        public string get_string_scartate()
+        {
+            return string.Join(" - ", scartate);
+        }
+
+        protected string get_cart_itestate(List<Carte> carte)
+        {
+            int i = 0;
+            string x = "";
+            foreach (Carte carta in carte)
+            {
+                x = x + $"{i} ==> {carta}, ";
+                i++;
+            }
+            return x;
+        }
+
         public abstract void partita();
 
         protected abstract void giro();
 
-
-        protected abstract void turno();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        protected abstract void turno(Giocatore giocatore);
 
         public override string ToString()
         {

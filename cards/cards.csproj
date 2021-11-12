@@ -45,14 +45,12 @@
   <ItemGroup>
     <Compile Include="Briscola.cs" />
     <Compile Include="Carte.cs" />
-    <Compile Include="Figura.cs" />
     <Compile Include="Giocatore.cs" />
     <Compile Include="Gioco.cs" />
     <Compile Include="GiocoBriscola.cs" />
     <Compile Include="GiocoRubamazzetto.cs" />
     <Compile Include="GiocoScala40.cs" />
     <Compile Include="Mazzo.cs" />
-    <Compile Include="Numero.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Rubamazzetto.cs" />

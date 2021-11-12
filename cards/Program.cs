@@ -22,11 +22,11 @@ namespace cards
                 {
                     case "scala40":
                         game = new GiocoScala40();
-                        //x = false;
+                        x = false;
                         break;
                     case "briscola":
                         game = new GiocoBriscola();
-                        //x = false;
+                        x = false;
                         break;
                     case "rubamazzetto":
                         game = new GiocoRubamazzetto();
@@ -70,6 +70,7 @@ namespace cards
             string comand = "\n\tmazzo = per stamapre a scarmo il contenuto del mazzo" +
                 "\n\tstart = startare il gioco cosi che le carte vengono misciate e distribuite hai giocatori" +
                 "\n\tvisualiza = per vedere le carte in mano hai giocatori e nel mazzo\n\tesci = per uscire dal programma" +
+                "\n\tinizia = per iniziare la partita" +
                 "\nnon tutto le funzioni sono implementate completamente il servizio e ancora in alfa";
             //e ora di vedere cosa abbiamo combinato
             Console.WriteLine("cosa vui fare ora?" + comand);
@@ -117,6 +118,7 @@ namespace cards
                         Console.WriteLine("prova con uno di questio comandi:" + comand);
                         break;
                 }
+                Console.WriteLine("-------------------------------------");
             } while (x);
 
             Console.Write("premi invio per terminare.......");

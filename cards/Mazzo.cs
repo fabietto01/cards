@@ -24,23 +24,12 @@ namespace cards
 
         protected abstract void generatore();
 
-        protected int numero_generatore(Carte[] carte, int puntatore, int numero_di_carta)
+        protected int genera_carta(Carte[] carte, int puntatore, string valore_carta)
         {
             //genera le carte numero
             foreach (string seme in semi)
             {
-                carte[puntatore] = new Numero(numero_di_carta, seme);
-                puntatore++;
-            }
-            return puntatore;
-        }
-
-        protected int figura_generatore(Carte[] carte, int puntatore, string typo_figura)
-        {
-            //genera le carte figura
-            foreach (string seme in semi)
-            {
-                carte[puntatore] = new Figura(typo_figura, seme);
+                carte[puntatore] = new Carte(valore_carta, seme);
                 puntatore++;
             }
             return puntatore;

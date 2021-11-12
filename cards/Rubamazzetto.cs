@@ -20,14 +20,14 @@ namespace cards
             //genera il mazzo di carte a seconda dei parametri passati
             for (int i = 0; i < carte.Length;)
             {
-                i = figura_generatore(carte, i, "asso");
+                i = genera_carta(carte, i, "asso");
                 for (int j = 2; j <= 7; j++)
                 {
-                    i = numero_generatore(carte, i, j);
+                    i = genera_carta(carte, i, j.ToString());
                 }
-                i = figura_generatore(carte, i, "dama");
-                i = figura_generatore(carte, i, "re");
-                i = figura_generatore(carte, i, "fante");
+                i = genera_carta(carte, i, "dama");
+                i = genera_carta(carte, i, "re");
+                i = genera_carta(carte, i, "fante");
             }
         }
 
