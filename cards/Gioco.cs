@@ -144,6 +144,23 @@ namespace cards
             return x;
         }
 
+        protected bool verifica_carte_scartate(Giocatore giocatore)
+        {
+            bool conferma = true;
+
+            foreach (Carte carte_in_mano in giocatore.carte_coperte)
+            {
+                foreach (Carte carta_in_tavolo in scartate)
+                {
+                    if (carta_in_tavolo.valore == carte_in_mano.valore)
+                    {
+                        conferma = false;
+                    }
+                }
+            }
+            return conferma;
+        }
+
         public abstract void partita();
 
         protected abstract void giro();

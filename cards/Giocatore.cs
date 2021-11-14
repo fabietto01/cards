@@ -55,7 +55,7 @@ namespace cards
         /// <summary>
         /// prende una carta e la inserisce imete nella sua manno, qusto comanda e anche chiamato pesca
         /// </summary>
-        /// <param name="carta"></param>
+        /// <param name="add_carta_coperta"></param>
         public void add_carta_coperta(Carte carta)
         {
             carte_coperte.Add(carta);
@@ -75,6 +75,11 @@ namespace cards
         public void remuve_to_coperte(int index)
         {
             carte_coperte.RemoveAt(index);
+        }
+
+        public void remuve_to_scoperte(int index)
+        {
+            carte_scoperte.RemoveAt(index);
         }
 
 
