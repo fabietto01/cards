@@ -13,7 +13,9 @@ OUTPUT GRAFICO.
 In questo momento non si è molto interessati all’aspetto grafico, ma ci si aspetta che il sistema possa rappresentare a video (su console):
 -	La sequenza delle carte del mazzo (per esempio: mostrare le successive 1 o 2 o n carte, eventualmente tutte).
 -	La sequenza di carte in mano a ciascun giocatore.
---------------------------------- ultima vesione
+
+---------- ultima vesione
+
 Si vuole sviluppare un software che permetta di gestire il gioco Rubamazzetto. E' possibile trovare le specifiche precise del gioco alla seguente pagina internet: https://it.wikipedia.org/wiki/Rubamazzetto.
 
 Specifiche del gioco:
